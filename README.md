@@ -1,4 +1,4 @@
-# instabug-challenge
+# vue-youtube
 
 ## Build Setup
 
