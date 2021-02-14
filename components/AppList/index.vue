@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="container__list">
+    <div class="container__list" v-if="data">
       <div v-for="video in data.items" :key="video.etag">
         <!-- video -->
 
@@ -24,12 +24,8 @@
           </div>
 
           <div class="container__list__video__details">
-            <p class="container__list__video__title">
-              {{ video.snippet.title }}
-            </p>
-            <p class="container__list__video__channel-title">
-              {{ video.snippet.channelTitle }}
-            </p>
+            <p class="container__list__video__title">{{ video.snippet.title }}</p>
+            <p class="container__list__video__channel-title">{{ video.snippet.channelTitle }}</p>
           </div>
         </nuxt-link>
 
@@ -43,19 +39,12 @@
             <img :src="video.snippet.thumbnails.medium.url" />
             <div class="container__list__playlist__overlay">
               <p>37</p>
-              <font-awesome-icon
-                class="container__list__search-icon"
-                icon="bars"
-              />
+              <font-awesome-icon class="container__list__search-icon" icon="bars" />
             </div>
           </div>
           <div class="container__list__playlist__details">
-            <p class="container__list__playlist__title">
-              {{ video.snippet.title }}
-            </p>
-            <p class="container__list__playlist__channel-title">
-              {{ video.snippet.channelTitle }}
-            </p>
+            <p class="container__list__playlist__title">{{ video.snippet.title }}</p>
+            <p class="container__list__playlist__channel-title">{{ video.snippet.channelTitle }}</p>
           </div>
         </nuxt-link>
 
@@ -70,9 +59,7 @@
             <img :src="video.snippet.thumbnails.medium.url" />
           </div>
           <div class="container__list__channel__details">
-            <p class="container__list__channel__title">
-              {{ video.snippet.title }}
-            </p>
+            <p class="container__list__channel__title">{{ video.snippet.title }}</p>
           </div>
         </nuxt-link>
       </div>
