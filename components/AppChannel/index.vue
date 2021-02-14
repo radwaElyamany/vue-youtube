@@ -1,28 +1,21 @@
 <template>
-  <div
-    class="container"
-    v-if="channel && channel.items && channel.items.length"
-  >
-    <div class="container__banner">
-      <img
-        :src="channel.items[0].brandingSettings.image.bannerExternalUrl"
-        alt
-      />
+  <div class="container" v-if="channel && channel.items && channel.items.length">
+    <div class="container__banner" v-if="channel.items[0].brandingSettings.image">
+      <img :src="channel.items[0].brandingSettings.image.bannerExternalUrl" alt />
     </div>
     <div class="container__details">
       <img :src="channel.items[0].snippet.thumbnails.medium.url" alt />
       <div>
         <p>{{ channel.items[0].snippet.title }}</p>
-        <font-awesome-icon
-          class="container__youtube-icon"
-          :icon="['fab', 'youtube']"
-        />
+        <font-awesome-icon class="container__youtube-icon" :icon="['fab', 'youtube']" />
         <span>SUBSCRIBE</span>
-        <span v-if="!channel.items[0].statistics.hiddenSubscriberCount">{{
+        <span v-if="!channel.items[0].statistics.hiddenSubscriberCount">
+          {{
           channel.items[0].statistics.subscriberCount
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-        }}</span>
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+          }}
+        </span>
       </div>
     </div>
   </div>
